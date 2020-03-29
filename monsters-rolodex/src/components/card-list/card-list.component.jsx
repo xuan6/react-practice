@@ -2,7 +2,7 @@ import React from 'react';
 import './card-list.style.css'
 import {Card} from '../card/card.componet'
 
-list = []
+//list = []
 
 //if props.searchField in monster, filter it to a list, then display the item
 
