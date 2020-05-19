@@ -26,6 +26,8 @@ class App extends Component {
 
   handleChange = (e) => {
     this.setState({searchField:e.target.value});
+    //use arrow function to bind the context to the place where it was defined at the first place
+    //euqal to this.handleChange = this.handleChange.bind-this-
   }
 
   render(){
@@ -40,6 +42,7 @@ class App extends Component {
     console.log({searchField})
     return (
       <div className="App">
+      <h1> Monsters Rolodex </h1>
       <SearchBox
         placeholder = 'search monsters'
         handleChange = {this.handleChange}/>
