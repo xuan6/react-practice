@@ -1,8 +1,7 @@
 import React from 'react';
 import { Component } from 'react'
 import './App.css';
-import {Cardlist} from 
-'./components/card-list/card-list.component.jsx'
+import {Cardlist} from './components/card-list/card-list.component.jsx'
 import {SearchBox} from './components/search-box/search-box.component.jsx'
 
 
@@ -15,7 +14,7 @@ class App extends Component {
       searchField:''
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount(){
@@ -39,7 +38,6 @@ class App extends Component {
     monster.name.toLowerCase().includes(searchField.toLocaleLowerCase())
     )
 
-    console.log({searchField})
     return (
       <div className="App">
       <h1> Monsters Rolodex </h1>
