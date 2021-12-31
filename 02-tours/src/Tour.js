@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
-const Tour = ({name, info, price, image}) => {
-  return (
+const Tour = ({id, name, info, price, image, onDelete}) => {
+    const onClick =()=>{
+        onDelete(id)   
+    }
+
+    return (
       <article className='single-tour'>
         <img src={image} alt={name}/>
         <footer>
@@ -10,7 +14,7 @@ const Tour = ({name, info, price, image}) => {
                 <h4 className='tour-price'>{price}</h4>
             </div>
             <p>{info}</p>
-            <button className='delete-btn'>not interested</button>
+            <button className='delete-btn' onClick={onClick}>not interested</button>
         </footer>
         
       </article>

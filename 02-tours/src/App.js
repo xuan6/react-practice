@@ -16,7 +16,6 @@ function App() {
     const data  = await res.json()
     setTours(data)
     setLoading(false)
-    console.log(data)
   }
 
   useEffect(()=>{
@@ -24,9 +23,14 @@ function App() {
   },[]  
   )
 
+  const deleteTour = (id) =>{
+    const updatedTours = tours.filter((tour)=> tour.id !== id);
+    setTours(updatedTours);
+  }
+
   return (
     <main>
-      {loading?<Loading/>:<Tours tours={tours}/>}
+      {loading?<Loading/>:<Tours tours={tours} onDelete={deleteTour}/>}
     </main>
   )
 }
