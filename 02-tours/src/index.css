@@ -197,6 +197,15 @@ main {
 .tour-info h4 {
   margin-bottom: 0;
 }
+
+p.truncation{
+  /* display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden; */
+  max-width: 200ch;
+
+}
 .single-tour button {
   background: transparent;
   border-color: transparent;
