@@ -1,50 +1,65 @@
 import React from 'react';
 import Review from './Review';
 import reviews from './data.js'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 function App() {
-  let reviewCount = reviews.length
-  const [page,setPage] = useState(0)
+  let maxIndex = reviews.length-1
+  const [pageIndex,setPageIndex] = useState(0)
+  const [currentReview, setCurrentReview] = useState(reviews[0])
 
-  //function to get the date of the current review to be shown
-  const [currentReview, setCurrentReview] = useState(reviews[page])
-  const showReview = (reviews) => {
-    const current = reviews.filter((review)=>review.id===page)
+
+  // useEffect(()=>{
+    
+  // },[])
+
+  const updateCurrent = (pageIndex)=>{
+    const current = reviews[pageIndex]
     setCurrentReview(current)
+    console.log(currentReview);
   }
 
   //function to define next page
   const nextPage = () => {
-    if(page<reviewCount){
-      setPage(page+1)
-      showReview(reviews)
+    if(pageIndex<maxIndex){
+      setPageIndex(pageIndex+1);
+      updateCurrent(pageIndex);
+      
     }else{//circle back to the first review
-      setPage(0)
-      showReview(reviews)
+      setPageIndex(0);
+      updateCurrent(pageIndex);
     }
   }
 
   //function define previous page
   const prevPage = () => {
-    if(page>=0){
-      setPage(page-1)
-      showReview(reviews)
+    if(pageIndex>0){
+      setPageIndex(pageIndex-1)
+      setCurrentReview(reviews[pageIndex])
+      updateCurrent(pageIndex);
     }else{//circle back to the last review
-      setPage(reviewCount-1)
-      showReview(reviews)
+      setPageIndex(maxIndex)
+      setCurrentReview(reviews[pageIndex])
+      updateCurrent(pageIndex);
     }
   }
 
   //function to define random page
   const randomPage =() => {
-    setPage(Math.floor(Math.random()*reviewCount))
-    showReview(reviews)
+    setPageIndex(Math.floor(Math.random()*(maxIndex+1)))
+    setCurrentReview(reviews[pageIndex])
+    updateCurrent(pageIndex);
   }
 
   
 
-  return <Review showNext={nextPage} showPrev={prevPage} showRandom={randomPage} current={currentReview}/>; 
+  return (
+    <main>
+      <h3 className='title'>Reviews</h3>
+      <div className='underline'></div>
+      <Review showNext={nextPage} showPrev={prevPage} showRandom={randomPage} current={currentReview}/>
+    </main>
+    ); 
 }
 
 export default App;
