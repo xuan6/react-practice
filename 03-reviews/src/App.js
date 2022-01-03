@@ -22,7 +22,9 @@ function App() {
   //function to define next page
   const nextPage = () => {
     if(pageIndex<maxIndex){
+      console.log('raw '+pageIndex)
       setPageIndex(pageIndex+1);
+      console.log('updated '+pageIndex)
       updateCurrent(pageIndex);
       
     }else{//circle back to the first review
@@ -55,9 +57,14 @@ function App() {
 
   return (
     <main>
-      <h3 className='title'>Reviews</h3>
-      <div className='underline'></div>
-      <Review showNext={nextPage} showPrev={prevPage} showRandom={randomPage} current={currentReview}/>
+      <section className='container'>
+        <div className='title'>
+          <h2>Reviews</h2>
+          <div className='underline'></div>
+        </div>
+        <Review showNext={nextPage} showPrev={prevPage} showRandom={randomPage} current={currentReview}/>
+      </section>
+      
     </main>
     ); 
 }
