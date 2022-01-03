@@ -3,15 +3,8 @@ import {FaPlus, FaMinus} from "react-icons/fa";
 function Question({title, info}) {
   //toggle answer visibility
   const [visibility, setVisibility] = useState(false)
-  const [icon, setIcon] = useState(<FaPlus/>)
-
   const onClick = () =>{
     setVisibility(!visibility)
-    if (visibility){
-      setIcon(<FaPlus/>)
-    }else{
-      setIcon(<FaMinus/>)
-    }
   }
 
 
@@ -21,7 +14,9 @@ function Question({title, info}) {
     <div className='question'>
       <header>
         <h4>{title}</h4>
-        <button className='btn' onClick={onClick}>{icon}</button>
+        <button className='btn' onClick={onClick}>
+          {visibility?<FaMinus/>:<FaPlus/>} 
+        </button>
       </header>
       {visibility?<p>{info}</p>:''}
     </div>
