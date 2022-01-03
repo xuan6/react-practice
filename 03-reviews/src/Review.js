@@ -10,7 +10,6 @@ const Review = ({showNext, showPrev, showRandom, current}) => {
         <h4 className='author'>{current.name}</h4>
         <p className='job'>{current.job}</p>
         <p className='info'>{current.text}</p>
-        <p>{current.id}</p>
         <div className='btn-group'>
           <button  className='prev-btn' onClick={showPrev} ><FaChevronLeft/></button>
           <button className='next-btn' onClick={showNext} ><FaChevronRight/></button>
