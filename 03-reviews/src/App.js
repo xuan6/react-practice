@@ -12,11 +12,7 @@ function App() {
   //function to define next page
   const nextPage = () => {
     if(pageIndex<maxIndex){
-      console.log('raw '+pageIndex)
       setPageIndex(pageIndex+1);
-      console.log('updated '+pageIndex)
-
-      
     }else{//circle back to the first review
       setPageIndex(0);
     }
