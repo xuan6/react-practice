@@ -7,7 +7,7 @@ const Menu = ({image, title, category, price, info}) => {
         <div className='item-info'>
             <header >
                 <h4>{title}</h4>
-                <h4>{price}</h4>
+                <h4>${price}</h4>
             </header>
             <p className='item-text'>{info}</p>
         </div>
