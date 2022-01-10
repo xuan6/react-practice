@@ -4,7 +4,27 @@ import Categories from './Categories';
 import items from './data';
 
 function App() {
-  return <h2>menu project setup</h2>;
+  const [visibility, setVisibility] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState ('all')
+
+  const filterMenu = (category) => {
+    if (category==='all'){
+      setSelectedCategory('all')
+    }else{
+      setSelectedCategory(category)
+    }
+
+  }
+
+  return (
+    <main>
+      <h2 className='title'>Our Menu</h2>
+      <Categories onClick={filterMenu} category={selectedCategory}/>
+      <secction className='menu'>
+        {items.map((item)=><Menu title={item.title} price={item.price} info={item.desc} category={item.category} image={item.img} key={item.id}/>)}
+      </secction>
+    </main>
+  );
 }
 
 export default App;
