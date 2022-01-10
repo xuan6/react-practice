@@ -31,10 +31,11 @@ function App() {
 
 
   return (
-    <main>
+    <main className='menu'>
       <h2 className='title'>Our Menu</h2>
+      <div className='underline'></div>
       <Categories onClick={filterMenu} category={selectedCategory}/>
-      <section className='menu'>
+      <section className='section-center'>
         <MenuSection/>
       </section>
     </main>
