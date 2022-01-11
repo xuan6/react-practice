@@ -6,10 +6,14 @@ import items from './data';
 function App() {
   const [selectedCategory, setSelectedCategory] = useState ('all')
 
+  //collect categories info
+  let allCategories = ['all', ...new Set(items.map((item)=>item.category))]
+
   //set category after clicking catefory button
   const filterMenu = (category) => {
     if (category==='all'){
       setSelectedCategory('all')
+      // console.log(allCategories)
     }else{
       setSelectedCategory(category)
     }
@@ -34,7 +38,7 @@ function App() {
     <main className='menu'>
       <h2 className='title'>Our Menu</h2>
       <div className='underline'></div>
-      <Categories onClick={filterMenu} category={selectedCategory}/>
+      <Categories onClick={filterMenu} categories={allCategories}/>
       <section className='section-center'>
         <MenuSection/>
       </section>
