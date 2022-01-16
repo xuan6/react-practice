@@ -1,9 +1,9 @@
-const Buttons = ({jobs, onNav, selectedIndex}) => {
+const Buttons = ({jobs, onNav, selectedID}) => {
     return (
         <div className='btn-container' >
-            {jobs.map((job, index)=>
-                <button onClick={()=>onNav(index)} key={job.id}
-                className={`job-btn ${index===selectedIndex && 'active-btn'}`}
+            {jobs.map((job)=>
+                <button onClick={()=>onNav(job.id)} key={job.id}
+                className={`job-btn ${job.id===selectedID && 'active-btn'}`}
                 >{job.company}</button>
                 )}
         </div>
