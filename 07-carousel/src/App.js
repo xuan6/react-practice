@@ -24,6 +24,20 @@ function App() {
       setIndex(index-1)
     }
   }
+
+  //auto slide through each page
+  useEffect(()=>{
+    let slider = setInterval(() => {
+      if(index===count-1){
+        setIndex(0)
+      }else{
+        setIndex(index+1)
+      }
+    }, 3000);
+    return () => {
+      clearInterval(slider)
+    }
+  },[index])
   
   return (
     <main className='section'>
