@@ -4,9 +4,10 @@ import SingleColor from './SingleColor'
 import Values from 'values.js'
 
 function App() {
+  const defaultColors = new Values('#0aa672').all(10)
   const [color,setColor] = useState('');
   const [error,setError] = useState(false);
-  const [list,setList] = useState([])
+  const [list,setList] = useState(defaultColors)
 
   const handleSubmit =(e)=>{
     e.preventDefault();
@@ -38,7 +39,6 @@ function App() {
     </section>
     <section className='colors'>
       {list.map((color, index)=>{
-        console.log(color)
         return <SingleColor index={index} key={index} {...color}/>
         // use {...color} to pass in all data in the object, we can specify in the sub component
       })}

@@ -205,12 +205,13 @@ input.error {
 .color-dark .color-value {
   color: var(--clr-white);
 }
-.color-dark .percent-value {
-  color: var(--clr-white);
-}
 
-.alert {
+.click-to-copy {
   text-transform: uppercase;
   font-size: 0.85rem;
   margin-top: 0.5rem;
+}
+
+.color-dark .click-to-copy {
+  color: var(--clr-white);
 }
