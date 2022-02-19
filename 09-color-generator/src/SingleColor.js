@@ -5,10 +5,12 @@ const SingleColor = ({rgb, type, weight}) => {
     let hex = rgbToHex(rgb[0], rgb[1],rgb[2])
     console.log(hex)
     return <div
-    className='color'
+    className={' color '+`${type==='shade' ? 'color-dark' : ''}`}
     style={{backgroundColor:hex}}>
-    <p>{hex}</p>
-    <p>{weight}%</p>
+    <div>
+        <span className='color-value'>{hex}<br/>
+       {weight}%</span>
+    </div>
     </div>
 }
 

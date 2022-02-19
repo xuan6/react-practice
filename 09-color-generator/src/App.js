@@ -23,12 +23,12 @@ function App() {
   return (
   <main>
     <section className='container'>
-      <h2>color generator project</h2>
+      <h3>Color Generator</h3>
       <form onSubmit={handleSubmit}>
         <input
           type='text'
           value={color}
-          placeholder='#f15025'
+          placeholder='#0aa672'
           onChange={(e)=>setColor(e.target.value)}
           className={`${error ? 'error' : null}`}
         />
