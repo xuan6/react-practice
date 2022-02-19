@@ -14,9 +14,17 @@ const SingleColor = ({rgb, type, weight}) => {
         setAlertVisibility(true)
         navigator.clipboard.writeText(hex)
     }
+    //anytime alearVisibility changes, the timeout will be triggered to clear the alert 
+    useEffect(()=>{
+        const timeout = setTimeout(()=>{
+            setAlertVisibility(false)
+        },2000)
+        //clear the timeout session, otherwise the next time we click the tile, the alert message won't show up
+        return ()=>clearTimeout(timeout)
+    },[alertVisibility])
 
     return <div
-    className={' color '+`${type==='shade' ? 'color-dark' : ''}`}
+    className={`${type==='shade' ? 'color color-dark' : 'color'}`}
     style={{backgroundColor:hex}}
     onClick={showAlert}
     >
